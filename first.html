@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TASC</title>
+	<style type="text/css">
+		#myVideo {
+		  position: fixed;
+		  right: 0;
+		  bottom: 0;
+		  min-width: 100%;
+		  min-height: 100%;
+		  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+		  ba
+		}
+		.content {
+		  position: fixed;
+		  top:15%;
+		  left:75%;
+		  transform: translate(-50%,-50%);
+		  font-size: 20px;
+		  color: white;
+		}
+
+		h1{
+			text-align: center;
+			font-size: 60px;
+			width: 500px;
+		}
+
+		p{
+			text-align: center;
+			font-size: 30px;
+			width: 500px;
+		}		
+
+		.btn{
+			position: absolute;
+			top:250%;
+			right:60%;
+		}
+		
+		.open-button{
+			margin-right: 250px;
+			padding: 10px 20px;
+			margin-bottom: 40px;
+			border-color: #B22222;
+  			color: black;
+  			box-shadow: 0 0 40px 40px #B22222  inset, 0 0 0 0 #B22222 ;
+  			border-radius: 8px;
+  			transition: all 150ms ease-in-out;
+  			padding: 14px 40px;
+  			text-decoration: none;
+  			cursor: pointer;
+  			font-size: 20px;
+		}
+		.open-button:hover{
+			background-color: black;
+			box-shadow: 0 0 10px 0 #B22222 inset, 0 0 10px 4px #B22222;
+			color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<video autoplay muted loop id="myVideo">
+ 		<source src="v1.mp4" type="video/mp4">
+	</video>
+
+	
+	<div class="content">
+	  <h1>Welcome To TASC</h1>
+	  <p>THREAT ANALYSIS AND SURVELLIANCE CELL</p>
+
+	  <div class="btn">
+		<button class="open-button" onclick="openForm()">LOGIN</button>
+	  </div>
+	</div>
+
+
+	<!-- Login form-->
+
+	<div class="form-popup" id="myForm">
+  <form action="login.php" class="form-container">
+  	<h3>LOGIN</h3>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn-login" action="login.php">Login</button>
+    <button type="button" class="btn-login" onclick="openForm2()">Register</button>
+    <button type="button" class="btn-cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+
+
+	<!-- Register form -->
+
+<div class="form-popup" id="myForm2">
+  <form action="register.php" class="form-container">
+  	<h3>Register</h3>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required="*">
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required="*">
+
+    <label for="psw"><b>Re-type Password</b></label>
+    <input type="password" placeholder="Re-type Password" name="rpsw" required="*">
+
+    <label for="location"><b>Location</b></label>
+    <input type="text" placeholder="Enter your Location" name="location" name="location" required="*">
+
+    <label for="phone"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter your PhoneNumber" name="phone" required="*">
+
+    <button type="submit" class="btn-login" action="register.php">Register</button>
+    <button type="button" class="btn-cancel" onclick="closeForm2()">Close</button>
+  </form>
+</div>
+
+
+
+
+	
+	<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+function openForm2(){
+	document.getElementById("myForm2").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+function closeForm2() {
+	document.getElementById("myForm2").style.display ="none";
+	document.getElementById("myForm").style.display ="none";
+}
+
+</script>
+
+<style type="text/css">
+
+	/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 2%;
+  right: 15px;
+  border: 3px solid black;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 30px;
+  background-color:black;
+  color: white;
+
+}
+
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn-login {
+  background-color: #1b03a3;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .btn-cancel {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn-login:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.form-container .btn-cancel:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+
+</style>
+
+
+
+</body>
+</html>
